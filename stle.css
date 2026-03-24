@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #dfe9f3, #ffffff);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.card {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+input, select {
+  border-radius: 10px !important;
+  transition: 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #0d6efd !important;
+  box-shadow: 0 0 5px rgba(13,110,253,0.4);
+}
+
+button {
+  border-radius: 10px !important;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+.table thead {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f5ff;
+}
+
+.delete-btn {
+  color: red;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#total {
+  color: #28a745;
+}
+
+canvas {
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .row > div {
+    margin-bottom: 15px;
+  }
+}
