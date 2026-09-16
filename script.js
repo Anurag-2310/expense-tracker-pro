@@ -66,7 +66,11 @@ function displayData(data) {
         <td>₹${exp.amount}</td>
         <td>${exp.date}</td>
         <td>${exp.category}</td>
-        <td><span class="delete-btn" onclick="deleteExpense(${index})">❌</span></td>
+        <td>
+          <span class="delete-btn" onclick="deleteExpense(${index})">
+            ❌
+          </span>
+        </td>
       </tr>
     `);
   });
@@ -77,16 +81,20 @@ function displayData(data) {
 }
 
 function filterData(type) {
+
   let now = new Date();
 
   let filtered = expenses.filter(exp => {
+
     let d = new Date(exp.date);
 
-    if (type === "daily") return d.toDateString() === now.toDateString();
+    if (type === "daily") {
+      return d.toDateString() === now.toDateString();
+    }
 
     if (type === "weekly") {
       let diff = (now - d) / (1000 * 60 * 60 * 24);
-      return diff <= 7;
+      return diff >= 0 && diff <= 7;
     }
 
     if (type === "monthly") {
@@ -104,40 +112,35 @@ function filterData(type) {
   displayData(filtered);
 }
 
-let pieChart, barChart;
+
+// ONLY PIE CHART
+let pieChart;
 
 function updateCharts(data) {
 
   let categoryMap = {};
-  let dateMap = {};
 
   data.forEach(exp => {
-    categoryMap[exp.category] = (categoryMap[exp.category] || 0) + exp.amount;
-    dateMap[exp.date] = (dateMap[exp.date] || 0) + exp.amount;
+    categoryMap[exp.category] =
+      (categoryMap[exp.category] || 0) + exp.amount;
   });
 
   let pieLabels = Object.keys(categoryMap);
   let pieData = Object.values(categoryMap);
 
-  let barLabels = Object.keys(dateMap);
-  let barData = Object.values(dateMap);
-
-  if (pieChart) pieChart.destroy();
-  if (barChart) barChart.destroy();
+  if (pieChart) {
+    pieChart.destroy();
+  }
 
   pieChart = new Chart($("#pieChart"), {
-    type: 'pie',
+    type: "pie",
+
     data: {
       labels: pieLabels,
-      datasets: [{ data: pieData }]
-    }
-  });
 
-  barChart = new Chart($("#barChart"), {
-    type: 'bar',
-    data: {
-      labels: barLabels,
-      datasets: [{ data: barData }]
+      datasets: [{
+        data: pieData
+      }]
     }
   });
 }

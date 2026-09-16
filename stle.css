@@ -5,13 +5,13 @@
 }
 
 body {
-  background: linear-gradient(135deg, #dfe9f3, #ffffff);
+  background: linear-gradient(135deg, #fff5f7, #ffffff);
   font-family: 'Segoe UI', sans-serif;
 }
 
 h2 {
   font-weight: 700;
-  color: #2c3e50;
+  color: #2f2f2f;
 }
 
 .card {
@@ -31,8 +31,8 @@ input, select {
 }
 
 input:focus, select:focus {
-  border-color: #0d6efd !important;
-  box-shadow: 0 0 5px rgba(13,110,253,0.4);
+  border-color: #c62828 !important;
+  box-shadow: 0 0 5px rgba(198,40,40,0.3);
 }
 
 button {
@@ -50,7 +50,7 @@ button:hover {
 }
 
 .table tbody tr:hover {
-  background-color: #f1f5ff;
+  background-color: #fff1f3;
 }
 
 .delete-btn {
@@ -60,7 +60,7 @@ button:hover {
 }
 
 #total {
-  color: #28a745;
+  color: #c62828;
 }
 
 canvas {
